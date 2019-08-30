@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UTRANSPORTDATABASEModelStoreContainer" CdmEntityContainer="UTRANSPORTDATABASEEntities2">
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="EMPLOYEE_IMAGE" ColumnName="EMPLOYEE_IMAGE" />
+          <ScalarProperty Name="EMPLOYEE_NAMES" ColumnName="EMPLOYEE_NAMES" />
+          <ScalarProperty Name="EMPLOYEE_SURNAME" ColumnName="EMPLOYEE_SURNAME" />
+          <ScalarProperty Name="EMPLOYEE_EMAIL_ADDRESS" ColumnName="EMPLOYEE_EMAIL_ADDRESS" />
+          <ScalarProperty Name="EMPLOYEE_CONTACT_NO" ColumnName="EMPLOYEE_CONTACT_NO" />
+          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_CONTRACT">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT">
+        <MappingFragment StoreEntitySet="EMPLOYEE_CONTRACT">
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_SALARY" ColumnName="EMPLOYEE_CONTRACT_SALARY" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_START_DATE" ColumnName="EMPLOYEE_CONTRACT_START_DATE" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_END_DATE" ColumnName="EMPLOYEE_CONTRACT_END_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_TYPE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE">
+        <MappingFragment StoreEntitySet="EMPLOYEE_TYPE">
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_NAME" ColumnName="EMPLOYEE_TYPE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TITLEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TITLE">
+        <MappingFragment StoreEntitySet="TITLE">
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="TITLE_NAME" ColumnName="TITLE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

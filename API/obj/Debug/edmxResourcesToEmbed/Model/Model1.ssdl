@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UTRANSPORTDATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE_ID" Type="int" />
+    <Property Name="EMPLOYEE_IMAGE" Type="image" />
+    <Property Name="EMPLOYEE_NAMES" Type="varchar" MaxLength="50" />
+    <Property Name="EMPLOYEE_SURNAME" Type="varchar" MaxLength="20" />
+    <Property Name="EMPLOYEE_EMAIL_ADDRESS" Type="varchar" MaxLength="50" />
+    <Property Name="EMPLOYEE_CONTACT_NO" Type="varchar" MaxLength="9" />
+    <Property Name="IDENTITY_NO" Type="varchar" MaxLength="13" />
+    <Property Name="EMPLOYEE_CONTRACT_ID" Type="int" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_CONTRACT">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_CONTRACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYEE_CONTRACT_SALARY" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EMPLOYEE_CONTRACT_START_DATE" Type="datetime" />
+    <Property Name="EMPLOYEE_CONTRACT_END_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_TYPE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EMPLOYEE_TYPE_NAME" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TITLE">
+    <Key>
+      <PropertyRef Name="TITLE_ID" />
+    </Key>
+    <Property Name="TITLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE_NAME" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__EMPLOY__73BA3083">
+    <End Role="EMPLOYEE_CONTRACT" Type="Self.EMPLOYEE_CONTRACT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_CONTRACT">
+        <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__EMPLOY__74AE54BC">
+    <End Role="EMPLOYEE_TYPE" Type="Self.EMPLOYEE_TYPE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_TYPE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EMPLOYEE__TITLE___72C60C4A">
+    <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UTRANSPORTDATABASEModelStoreContainer">
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_CONTRACT" EntityType="Self.EMPLOYEE_CONTRACT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_TYPE" EntityType="Self.EMPLOYEE_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TITLE" EntityType="Self.TITLE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__73BA3083" Association="Self.FK__EMPLOYEE__EMPLOY__73BA3083">
+      <End Role="EMPLOYEE_CONTRACT" EntitySet="EMPLOYEE_CONTRACT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__74AE54BC" Association="Self.FK__EMPLOYEE__EMPLOY__74AE54BC">
+      <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EMPLOYEE__TITLE___72C60C4A" Association="Self.FK__EMPLOYEE__TITLE___72C60C4A">
+      <End Role="TITLE" EntitySet="TITLE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

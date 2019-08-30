@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a7f20010e9cd445b9ed763d66c2ab6e9" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.TITLE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.USER" Width="1.5" PointX="5.25" PointY="3.375" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.TRAILER_STATUS" Width="1.5" PointX="5.375" PointY="11" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.TRUCK_PICKUP" Width="1.5" PointX="9.375" PointY="1.25" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.VEHICLE_STATUS" Width="1.5" PointX="7.625" PointY="4.75" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.DEALERSHIP" Width="1.5" PointX="9.875" PointY="3.75" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.VEHICLE_DEALERSHIP_SERVICE" Width="1.875" PointX="12.125" PointY="7.625" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__VEHICLE_D__DEALE__68487DD7" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.EMPLOYEE" Width="1.5" PointX="3" PointY="2.375" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__TITLE___72C60C4A" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__USERS__EMPLOYEE___778AC167" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT" Width="1.5" PointX="7.375" PointY="7.875" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6E01572D" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.VEHICLE" Width="1.5" PointX="9.875" PointY="7.75" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__VEHICLE__VEHICLE__3F466844" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__VEHICLE_D__VEHIC__619B8048" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.TRAILER" Width="1.5" PointX="7.625" PointY="11.375" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__TRAILER__TRAILER__398D8EEE" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__VEHICLE__TRAILER__3E52440B" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.PRODUCT" Width="1.5" PointX="14.625" PointY="0.875" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.PRODUCT_TYPE" Width="1.5" PointX="12.375" PointY="1.125" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__PRODUCT__PRODUCT__05D8E0BE" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.SUPPLIER" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.ORDERS_STATUS" Width="1.5" PointX="0.75" PointY="13.5" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE" Width="1.5" PointX="7.375" PointY="0.875" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6EF57B66" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.PROVINCE" Width="1.5" PointX="10.375" PointY="13.625" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.CLIENT_ROUTE" Width="1.5" PointX="16.875" PointY="11.625" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.MINE" Width="1.5" PointX="12.625" PointY="15.375" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MINE__PROVINCE_I__282DF8C2" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.CLIENT" Width="1.5" PointX="3.375" PointY="15" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.CLIENT_MINE" Width="1.5" PointX="14.875" PointY="15.125" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.DESTINATION" Width="1.5" PointX="12.625" PointY="12.625" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__30C33EC3" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__32AB8735" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__MINE___31B762FC" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__CLIENT_RO__CLIEN__3587F3E0" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.ORDER" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.ORDERS_LINE" Width="1.5" PointX="16.875" PointY="5.875" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__ORDERS__ORDERS_S__1332DBDC" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__ORDERS__SUPPLIER__123EB7A3" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__ORDERS_LI__ORDER__160F4887" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__ORDERS_LI__PRODU__17036CC0" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.AUDIT_TRAIL" Width="2" PointX="5.75" PointY="0.625" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.AUDIT_TRAIL_TYPE" Width="1.5" PointX="4.375" PointY="13.5" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__AUDIT__76969D2E" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__EMPLO__778AC167" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.MAINTENANCE_PRODUCT" Width="2.375" PointX="16.875" PointY="2.5" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__PRODU__0B91BA14" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.MAINTENANCE_STATUS" Width="1.5" PointX="16.875" PointY="9.125" />
+        <EntityTypeShape EntityType="UTRANSPORTDATABASEModel.MAINTENANCE" Width="2.75" PointX="19.125" PointY="5.625" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__EMPLO__7C4F7684" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__0B91BA14" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__7E37BEF6" />
+        <AssociationConnector Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__VEHIC__7D439ABD" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

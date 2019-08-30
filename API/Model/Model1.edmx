@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UTRANSPORTDATABASEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE_ID" Type="int" />
+          <Property Name="EMPLOYEE_IMAGE" Type="image" />
+          <Property Name="EMPLOYEE_NAMES" Type="varchar" MaxLength="50" />
+          <Property Name="EMPLOYEE_SURNAME" Type="varchar" MaxLength="20" />
+          <Property Name="EMPLOYEE_EMAIL_ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="EMPLOYEE_CONTACT_NO" Type="varchar" MaxLength="9" />
+          <Property Name="IDENTITY_NO" Type="varchar" MaxLength="13" />
+          <Property Name="EMPLOYEE_CONTRACT_ID" Type="int" />
+          <Property Name="EMPLOYEE_TYPE_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_CONTRACT">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_CONTRACT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPLOYEE_CONTRACT_SALARY" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EMPLOYEE_CONTRACT_START_DATE" Type="datetime" />
+          <Property Name="EMPLOYEE_CONTRACT_END_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_TYPE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_TYPE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMPLOYEE_TYPE_NAME" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TITLE">
+          <Key>
+            <PropertyRef Name="TITLE_ID" />
+          </Key>
+          <Property Name="TITLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE_NAME" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__EMPLOYEE__EMPLOY__73BA3083">
+          <End Role="EMPLOYEE_CONTRACT" Type="Self.EMPLOYEE_CONTRACT" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE_CONTRACT">
+              <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEE__EMPLOY__74AE54BC">
+          <End Role="EMPLOYEE_TYPE" Type="Self.EMPLOYEE_TYPE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE_TYPE">
+              <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEE__TITLE___72C60C4A">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UTRANSPORTDATABASEModelStoreContainer">
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE_CONTRACT" EntityType="Self.EMPLOYEE_CONTRACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE_TYPE" EntityType="Self.EMPLOYEE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TITLE" EntityType="Self.TITLE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EMPLOYEE__EMPLOY__73BA3083" Association="Self.FK__EMPLOYEE__EMPLOY__73BA3083">
+            <End Role="EMPLOYEE_CONTRACT" EntitySet="EMPLOYEE_CONTRACT" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEE__EMPLOY__74AE54BC" Association="Self.FK__EMPLOYEE__EMPLOY__74AE54BC">
+            <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEE__TITLE___72C60C4A" Association="Self.FK__EMPLOYEE__TITLE___72C60C4A">
+            <End Role="TITLE" EntitySet="TITLE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UTRANSPORTDATABASEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE_ID" Type="Int32" />
+          <Property Name="EMPLOYEE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EMPLOYEE_NAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYEE_SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYEE_EMAIL_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYEE_CONTACT_NO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="IDENTITY_NO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLOYEE_CONTRACT_ID" Type="Int32" />
+          <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" />
+          <NavigationProperty Name="EMPLOYEE_CONTRACT" Relationship="Self.FK__EMPLOYEE__EMPLOY__73BA3083" FromRole="EMPLOYEE" ToRole="EMPLOYEE_CONTRACT" />
+          <NavigationProperty Name="EMPLOYEE_TYPE" Relationship="Self.FK__EMPLOYEE__EMPLOY__74AE54BC" FromRole="EMPLOYEE" ToRole="EMPLOYEE_TYPE" />
+          <NavigationProperty Name="TITLE" Relationship="Self.FK__EMPLOYEE__TITLE___72C60C4A" FromRole="EMPLOYEE" ToRole="TITLE" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_CONTRACT">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_CONTRACT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_CONTRACT_SALARY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EMPLOYEE_CONTRACT_START_DATE" Type="DateTime" Precision="3" />
+          <Property Name="EMPLOYEE_CONTRACT_END_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__EMPLOY__73BA3083" FromRole="EMPLOYEE_CONTRACT" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE_TYPE">
+          <Key>
+            <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+          </Key>
+          <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMPLOYEE_TYPE_NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__EMPLOY__74AE54BC" FromRole="EMPLOYEE_TYPE" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="TITLE">
+          <Key>
+            <PropertyRef Name="TITLE_ID" />
+          </Key>
+          <Property Name="TITLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__TITLE___72C60C4A" FromRole="TITLE" ToRole="EMPLOYEE" />
+        </EntityType>
+        <Association Name="FK__EMPLOYEE__EMPLOY__73BA3083">
+          <End Role="EMPLOYEE_CONTRACT" Type="Self.EMPLOYEE_CONTRACT" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE_CONTRACT">
+              <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEE__EMPLOY__74AE54BC">
+          <End Role="EMPLOYEE_TYPE" Type="Self.EMPLOYEE_TYPE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE_TYPE">
+              <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EMPLOYEE__TITLE___72C60C4A">
+          <End Role="TITLE" Type="Self.TITLE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TITLE">
+              <PropertyRef Name="TITLE_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="TITLE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UTRANSPORTDATABASEEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="EMPLOYEE_CONTRACT" EntityType="Self.EMPLOYEE_CONTRACT" />
+          <EntitySet Name="EMPLOYEE_TYPE" EntityType="Self.EMPLOYEE_TYPE" />
+          <EntitySet Name="TITLEs" EntityType="Self.TITLE" />
+          <AssociationSet Name="FK__EMPLOYEE__EMPLOY__73BA3083" Association="Self.FK__EMPLOYEE__EMPLOY__73BA3083">
+            <End Role="EMPLOYEE_CONTRACT" EntitySet="EMPLOYEE_CONTRACT" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEE__EMPLOY__74AE54BC" Association="Self.FK__EMPLOYEE__EMPLOY__74AE54BC">
+            <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EMPLOYEE__TITLE___72C60C4A" Association="Self.FK__EMPLOYEE__TITLE___72C60C4A">
+            <End Role="TITLE" EntitySet="TITLEs" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UTRANSPORTDATABASEModelStoreContainer" CdmEntityContainer="UTRANSPORTDATABASEEntities2">
+          <EntitySetMapping Name="EMPLOYEEs">
+            <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+                <ScalarProperty Name="EMPLOYEE_IMAGE" ColumnName="EMPLOYEE_IMAGE" />
+                <ScalarProperty Name="EMPLOYEE_NAMES" ColumnName="EMPLOYEE_NAMES" />
+                <ScalarProperty Name="EMPLOYEE_SURNAME" ColumnName="EMPLOYEE_SURNAME" />
+                <ScalarProperty Name="EMPLOYEE_EMAIL_ADDRESS" ColumnName="EMPLOYEE_EMAIL_ADDRESS" />
+                <ScalarProperty Name="EMPLOYEE_CONTACT_NO" ColumnName="EMPLOYEE_CONTACT_NO" />
+                <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
+                <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+                <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE_CONTRACT">
+            <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT">
+              <MappingFragment StoreEntitySet="EMPLOYEE_CONTRACT">
+                <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+                <ScalarProperty Name="EMPLOYEE_CONTRACT_SALARY" ColumnName="EMPLOYEE_CONTRACT_SALARY" />
+                <ScalarProperty Name="EMPLOYEE_CONTRACT_START_DATE" ColumnName="EMPLOYEE_CONTRACT_START_DATE" />
+                <ScalarProperty Name="EMPLOYEE_CONTRACT_END_DATE" ColumnName="EMPLOYEE_CONTRACT_END_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE_TYPE">
+            <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE">
+              <MappingFragment StoreEntitySet="EMPLOYEE_TYPE">
+                <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+                <ScalarProperty Name="EMPLOYEE_TYPE_NAME" ColumnName="EMPLOYEE_TYPE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TITLEs">
+            <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TITLE">
+              <MappingFragment StoreEntitySet="TITLE">
+                <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+                <ScalarProperty Name="TITLE_NAME" ColumnName="TITLE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

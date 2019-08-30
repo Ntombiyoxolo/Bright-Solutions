@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UTRANSPORTDATABASEModelStoreContainer" CdmEntityContainer="UTRANSPORTDATABASEEntities">
+    <EntitySetMapping Name="TITLEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TITLE">
+        <MappingFragment StoreEntitySet="TITLE">
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="TITLE_NAME" ColumnName="TITLE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="USERS_PASSWORD" ColumnName="USERS_PASSWORD" />
+          <ScalarProperty Name="USERS_USERNAME" ColumnName="USERS_USERNAME" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="USERS_ID" ColumnName="USERS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAILER_STATUS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TRAILER_STATUS">
+        <MappingFragment StoreEntitySet="TRAILER_STATUS">
+          <ScalarProperty Name="TRAILER_STATUS_NAME" ColumnName="TRAILER_STATUS_NAME" />
+          <ScalarProperty Name="TRAILER_STATUS_ID" ColumnName="TRAILER_STATUS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRUCK_PICKUP">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TRUCK_PICKUP">
+        <MappingFragment StoreEntitySet="TRUCK_PICKUP">
+          <ScalarProperty Name="TRUCK_PICKUP_STATUS" ColumnName="TRUCK_PICKUP_STATUS" />
+          <ScalarProperty Name="TRUCK_PICKUP_ID" ColumnName="TRUCK_PICKUP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICLE_STATUS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.VEHICLE_STATUS">
+        <MappingFragment StoreEntitySet="VEHICLE_STATUS">
+          <ScalarProperty Name="VEHICLE_STATUS_NAME" ColumnName="VEHICLE_STATUS_NAME" />
+          <ScalarProperty Name="VEHICLE_STATUS_ID" ColumnName="VEHICLE_STATUS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEALERSHIPs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.DEALERSHIP">
+        <MappingFragment StoreEntitySet="DEALERSHIP">
+          <ScalarProperty Name="DEALERSHIP_LOCATION" ColumnName="DEALERSHIP_LOCATION" />
+          <ScalarProperty Name="DEALERSHIP_CONTACT_NUMBER" ColumnName="DEALERSHIP_CONTACT_NUMBER" />
+          <ScalarProperty Name="DEALERSHIP_REGISTRATION_NUMBER" ColumnName="DEALERSHIP_REGISTRATION_NUMBER" />
+          <ScalarProperty Name="DEALERSHIP_NAME" ColumnName="DEALERSHIP_NAME" />
+          <ScalarProperty Name="DEALERSHIP_ID" ColumnName="DEALERSHIP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICLE_DEALERSHIP_SERVICE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.VEHICLE_DEALERSHIP_SERVICE">
+        <MappingFragment StoreEntitySet="VEHICLE_DEALERSHIP_SERVICE">
+          <ScalarProperty Name="DEALERSHIP_ID" ColumnName="DEALERSHIP_ID" />
+          <ScalarProperty Name="VEHICLE_ID" ColumnName="VEHICLE_ID" />
+          <ScalarProperty Name="VEHICLE_SERVICE_NEXT_DATE" ColumnName="VEHICLE_SERVICE_NEXT_DATE" />
+          <ScalarProperty Name="VEHICLE_SERVICE_DATE" ColumnName="VEHICLE_SERVICE_DATE" />
+          <ScalarProperty Name="VEHICLE_SERVICE_ID" ColumnName="VEHICLE_SERVICE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+          <ScalarProperty Name="IDENTITY_NO" ColumnName="IDENTITY_NO" />
+          <ScalarProperty Name="EMPLOYEE_CONTACT_NO" ColumnName="EMPLOYEE_CONTACT_NO" />
+          <ScalarProperty Name="EMPLOYEE_EMAIL_ADDRESS" ColumnName="EMPLOYEE_EMAIL_ADDRESS" />
+          <ScalarProperty Name="EMPLOYEE_SURNAME" ColumnName="EMPLOYEE_SURNAME" />
+          <ScalarProperty Name="EMPLOYEE_NAMES" ColumnName="EMPLOYEE_NAMES" />
+          <ScalarProperty Name="EMPLOYEE_IMAGE_NAME" ColumnName="EMPLOYEE_IMAGE_NAME" />
+          <ScalarProperty Name="EMPLOYEE_IMAGE" ColumnName="EMPLOYEE_IMAGE" />
+          <ScalarProperty Name="TITLE_ID" ColumnName="TITLE_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_CONTRACT">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT">
+        <MappingFragment StoreEntitySet="EMPLOYEE_CONTRACT">
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_END_DATE" ColumnName="EMPLOYEE_CONTRACT_END_DATE" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_START_DATE" ColumnName="EMPLOYEE_CONTRACT_START_DATE" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_SALARY" ColumnName="EMPLOYEE_CONTRACT_SALARY" />
+          <ScalarProperty Name="EMPLOYEE_CONTRACT_ID" ColumnName="EMPLOYEE_CONTRACT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VEHICLEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.VEHICLE">
+        <MappingFragment StoreEntitySet="VEHICLE">
+          <ScalarProperty Name="TRAILER_ID" ColumnName="TRAILER_ID" />
+          <ScalarProperty Name="VEHICLE_WEIGHT" ColumnName="VEHICLE_WEIGHT" />
+          <ScalarProperty Name="VEHICLE_STATUS_ID" ColumnName="VEHICLE_STATUS_ID" />
+          <ScalarProperty Name="VEHICLE_IMAGE" ColumnName="VEHICLE_IMAGE" />
+          <ScalarProperty Name="VEHICLE_IMAGE_NAME" ColumnName="VEHICLE_IMAGE_NAME" />
+          <ScalarProperty Name="VEHICLE_NAME" ColumnName="VEHICLE_NAME" />
+          <ScalarProperty Name="VEHICLE_BRAND" ColumnName="VEHICLE_BRAND" />
+          <ScalarProperty Name="VEHICLE_PLATENUMBER" ColumnName="VEHICLE_PLATENUMBER" />
+          <ScalarProperty Name="VEHICLE_REGISTRATIONNUMBER" ColumnName="VEHICLE_REGISTRATIONNUMBER" />
+          <ScalarProperty Name="VEHICLE_ID" ColumnName="VEHICLE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAILERs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.TRAILER">
+        <MappingFragment StoreEntitySet="TRAILER">
+          <ScalarProperty Name="TRAILER_WEIGHT" ColumnName="TRAILER_WEIGHT" />
+          <ScalarProperty Name="TRAILER_STATUS_ID" ColumnName="TRAILER_STATUS_ID" />
+          <ScalarProperty Name="TRAILER_IMAGE" ColumnName="TRAILER_IMAGE" />
+          <ScalarProperty Name="TRAILER_IMAGE_NAME" ColumnName="TRAILER_IMAGE_NAME" />
+          <ScalarProperty Name="TRAILER_NAME" ColumnName="TRAILER_NAME" />
+          <ScalarProperty Name="TRAILER_BRAND" ColumnName="TRAILER_BRAND" />
+          <ScalarProperty Name="TRAILER_REGISTRATIONNUMBER" ColumnName="TRAILER_REGISTRATIONNUMBER" />
+          <ScalarProperty Name="TRAILER_ID" ColumnName="TRAILER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.PRODUCT">
+        <MappingFragment StoreEntitySet="PRODUCT">
+          <ScalarProperty Name="PRODUCT_DESCRIPTION" ColumnName="PRODUCT_DESCRIPTION" />
+          <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+          <ScalarProperty Name="PRODUCT_QUANTITY" ColumnName="PRODUCT_QUANTITY" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCT_TYPE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.PRODUCT_TYPE">
+        <MappingFragment StoreEntitySet="PRODUCT_TYPE">
+          <ScalarProperty Name="PRODUCT_TYPE_DESCRIPTION" ColumnName="PRODUCT_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="PRODUCT_TYPE_NAME" ColumnName="PRODUCT_TYPE_NAME" />
+          <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUPPLIERs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.SUPPLIER">
+        <MappingFragment StoreEntitySet="SUPPLIER">
+          <ScalarProperty Name="SUPPLIER_BANK_DETAILS" ColumnName="SUPPLIER_BANK_DETAILS" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS_CODE" ColumnName="SUPPLIER_ADDRESS_CODE" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS_TOWN" ColumnName="SUPPLIER_ADDRESS_TOWN" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS_STREET" ColumnName="SUPPLIER_ADDRESS_STREET" />
+          <ScalarProperty Name="SUPPLIER_ADDRESS_BOX" ColumnName="SUPPLIER_ADDRESS_BOX" />
+          <ScalarProperty Name="SUPPLIER_CONTACT_NO" ColumnName="SUPPLIER_CONTACT_NO" />
+          <ScalarProperty Name="SUPPLIER_EMAIL" ColumnName="SUPPLIER_EMAIL" />
+          <ScalarProperty Name="SUPPLIER_REGISTRATION_NUMBER" ColumnName="SUPPLIER_REGISTRATION_NUMBER" />
+          <ScalarProperty Name="SUPPLIER_NAME" ColumnName="SUPPLIER_NAME" />
+          <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS_STATUS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.ORDERS_STATUS">
+        <MappingFragment StoreEntitySet="ORDERS_STATUS">
+          <ScalarProperty Name="ORDERS_STATUS_NAME" ColumnName="ORDERS_STATUS_NAME" />
+          <ScalarProperty Name="ORDERS_STATUS_ID" ColumnName="ORDERS_STATUS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEE_TYPE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE">
+        <MappingFragment StoreEntitySet="EMPLOYEE_TYPE">
+          <ScalarProperty Name="EMPLOYEE_TYPE_DESCRIPTION" ColumnName="EMPLOYEE_TYPE_DESCRIPTION" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_NAME" ColumnName="EMPLOYEE_TYPE_NAME" />
+          <ScalarProperty Name="EMPLOYEE_TYPE_ID" ColumnName="EMPLOYEE_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVINCEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.PROVINCE">
+        <MappingFragment StoreEntitySet="PROVINCE">
+          <ScalarProperty Name="PROVINCE_NAME" ColumnName="PROVINCE_NAME" />
+          <ScalarProperty Name="PROVINCE_ID" ColumnName="PROVINCE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENT_ROUTE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.CLIENT_ROUTE">
+        <MappingFragment StoreEntitySet="CLIENT_ROUTE">
+          <ScalarProperty Name="DESIGNATED_ROUTE" ColumnName="DESIGNATED_ROUTE" />
+          <ScalarProperty Name="LOCATIONS" ColumnName="LOCATIONS" />
+          <ScalarProperty Name="CLIENT_MINE_ID" ColumnName="CLIENT_MINE_ID" />
+          <ScalarProperty Name="CLIENT_ROUTE_ID" ColumnName="CLIENT_ROUTE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MINE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.MINE">
+        <MappingFragment StoreEntitySet="MINE">
+          <ScalarProperty Name="PROVINCE_ID" ColumnName="PROVINCE_ID" />
+          <ScalarProperty Name="MINE_NAME" ColumnName="MINE_NAME" />
+          <ScalarProperty Name="MINE_ID" ColumnName="MINE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.CLIENT">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="CLIENT_CONTACT_NUMBER" ColumnName="CLIENT_CONTACT_NUMBER" />
+          <ScalarProperty Name="CLIENT_ADDRESS_CODE" ColumnName="CLIENT_ADDRESS_CODE" />
+          <ScalarProperty Name="CLIENT_ADDRESS_TOWN" ColumnName="CLIENT_ADDRESS_TOWN" />
+          <ScalarProperty Name="CLIENT_ADDRESS_STREET" ColumnName="CLIENT_ADDRESS_STREET" />
+          <ScalarProperty Name="CLIENT_ADDRESS_BOX" ColumnName="CLIENT_ADDRESS_BOX" />
+          <ScalarProperty Name="CLIENT_EMAIL_ADDRESS" ColumnName="CLIENT_EMAIL_ADDRESS" />
+          <ScalarProperty Name="CLIENT_NAME" ColumnName="CLIENT_NAME" />
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENT_MINE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.CLIENT_MINE">
+        <MappingFragment StoreEntitySet="CLIENT_MINE">
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+          <ScalarProperty Name="MINE_ID" ColumnName="MINE_ID" />
+          <ScalarProperty Name="CLIENT_MINE_ID" ColumnName="CLIENT_MINE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESTINATIONs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.DESTINATION">
+        <MappingFragment StoreEntitySet="DESTINATION">
+          <ScalarProperty Name="DESTINATION_NAME" ColumnName="DESTINATION_NAME" />
+          <ScalarProperty Name="DESTINATION_ID" ColumnName="DESTINATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.ORDER">
+        <MappingFragment StoreEntitySet="ORDERS">
+          <ScalarProperty Name="SUPPLIER_ID" ColumnName="SUPPLIER_ID" />
+          <ScalarProperty Name="ORDERS_STATUS_ID" ColumnName="ORDERS_STATUS_ID" />
+          <ScalarProperty Name="ORDERS_ID" ColumnName="ORDERS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERS_LINE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.ORDERS_LINE">
+        <MappingFragment StoreEntitySet="ORDERS_LINE">
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="ORDERS_ID" ColumnName="ORDERS_ID" />
+          <ScalarProperty Name="ORDERS_LINE_QUANTITY" ColumnName="ORDERS_LINE_QUANTITY" />
+          <ScalarProperty Name="ORDERS_LINE_ID" ColumnName="ORDERS_LINE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUDIT_TRAIL">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.AUDIT_TRAIL">
+        <MappingFragment StoreEntitySet="AUDIT_TRAIL">
+          <ScalarProperty Name="AUDIT_TRAIL_DEVICE" ColumnName="AUDIT_TRAIL_DEVICE" />
+          <ScalarProperty Name="AUDIT_TRAIL_DESCRIPTION" ColumnName="AUDIT_TRAIL_DESCRIPTION" />
+          <ScalarProperty Name="AUDIT_TRAIL_TYPE_ID" ColumnName="AUDIT_TRAIL_TYPE_ID" />
+          <ScalarProperty Name="AUDIT_TRAIL_DATE" ColumnName="AUDIT_TRAIL_DATE" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="AUDIT_TRAIL_ID" ColumnName="AUDIT_TRAIL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUDIT_TRAIL_TYPE">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.AUDIT_TRAIL_TYPE">
+        <MappingFragment StoreEntitySet="AUDIT_TRAIL_TYPE">
+          <ScalarProperty Name="AUDIT_TRAIL_TYPE_NAME" ColumnName="AUDIT_TRAIL_TYPE_NAME" />
+          <ScalarProperty Name="AUDIT_TRAIL_TYPE_ID" ColumnName="AUDIT_TRAIL_TYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAINTENANCE_PRODUCT">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.MAINTENANCE_PRODUCT">
+        <MappingFragment StoreEntitySet="MAINTENANCE_PRODUCT">
+          <ScalarProperty Name="MAINTENANCE_PRODUCT_QUANTITY" ColumnName="MAINTENANCE_PRODUCT_QUANTITY" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="MAINTENANCE_ID" ColumnName="MAINTENANCE_ID" />
+          <ScalarProperty Name="MAINTENANCE_PRODUCT1" ColumnName="MAINTENANCE_PRODUCT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAINTENANCE_STATUS">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.MAINTENANCE_STATUS">
+        <MappingFragment StoreEntitySet="MAINTENANCE_STATUS">
+          <ScalarProperty Name="MAINTENANCE_STATUS_NAME" ColumnName="MAINTENANCE_STATUS_NAME" />
+          <ScalarProperty Name="MAINTENANCE_STATUS_ID" ColumnName="MAINTENANCE_STATUS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MAINTENANCEs">
+      <EntityTypeMapping TypeName="UTRANSPORTDATABASEModel.MAINTENANCE">
+        <MappingFragment StoreEntitySet="MAINTENANCE">
+          <ScalarProperty Name="MAINTENANCE_STATUS_ID" ColumnName="MAINTENANCE_STATUS_ID" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="VEHICLE_ID" ColumnName="VEHICLE_ID" />
+          <ScalarProperty Name="MAINTENANCE_ID" ColumnName="MAINTENANCE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

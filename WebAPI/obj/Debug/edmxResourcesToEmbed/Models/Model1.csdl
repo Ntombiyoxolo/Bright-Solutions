@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UTRANSPORTDATABASEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TITLE">
+    <Key>
+      <PropertyRef Name="TITLE_ID" />
+    </Key>
+    <Property Name="TITLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__TITLE___72C60C4A" FromRole="TITLE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityContainer Name="UTRANSPORTDATABASEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TITLEs" EntityType="Self.TITLE" />
+    <EntitySet Name="USERS" EntityType="UTRANSPORTDATABASEModel.USER" />
+    <EntitySet Name="TRAILER_STATUS" EntityType="UTRANSPORTDATABASEModel.TRAILER_STATUS" />
+    <EntitySet Name="TRUCK_PICKUP" EntityType="UTRANSPORTDATABASEModel.TRUCK_PICKUP" />
+    <EntitySet Name="VEHICLE_STATUS" EntityType="UTRANSPORTDATABASEModel.VEHICLE_STATUS" />
+    <EntitySet Name="DEALERSHIPs" EntityType="UTRANSPORTDATABASEModel.DEALERSHIP" />
+    <EntitySet Name="VEHICLE_DEALERSHIP_SERVICE" EntityType="UTRANSPORTDATABASEModel.VEHICLE_DEALERSHIP_SERVICE" />
+    <AssociationSet Name="FK__VEHICLE_D__DEALE__68487DD7" Association="UTRANSPORTDATABASEModel.FK__VEHICLE_D__DEALE__68487DD7">
+      <End Role="DEALERSHIP" EntitySet="DEALERSHIPs" />
+      <End Role="VEHICLE_DEALERSHIP_SERVICE" EntitySet="VEHICLE_DEALERSHIP_SERVICE" />
+    </AssociationSet>
+    <EntitySet Name="EMPLOYEEs" EntityType="UTRANSPORTDATABASEModel.EMPLOYEE" />
+    <AssociationSet Name="FK__EMPLOYEE__TITLE___72C60C4A" Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__TITLE___72C60C4A">
+      <End Role="TITLE" EntitySet="TITLEs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USERS__EMPLOYEE___778AC167" Association="UTRANSPORTDATABASEModel.FK__USERS__EMPLOYEE___778AC167">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="USER" EntitySet="USERS" />
+    </AssociationSet>
+    <EntitySet Name="EMPLOYEE_CONTRACT" EntityType="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT" />
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__6E01572D" Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6E01572D">
+      <End Role="EMPLOYEE_CONTRACT" EntitySet="EMPLOYEE_CONTRACT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <EntitySet Name="VEHICLEs" EntityType="UTRANSPORTDATABASEModel.VEHICLE" />
+    <AssociationSet Name="FK__VEHICLE__VEHICLE__3F466844" Association="UTRANSPORTDATABASEModel.FK__VEHICLE__VEHICLE__3F466844">
+      <End Role="VEHICLE_STATUS" EntitySet="VEHICLE_STATUS" />
+      <End Role="VEHICLE" EntitySet="VEHICLEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VEHICLE_D__VEHIC__619B8048" Association="UTRANSPORTDATABASEModel.FK__VEHICLE_D__VEHIC__619B8048">
+      <End Role="VEHICLE" EntitySet="VEHICLEs" />
+      <End Role="VEHICLE_DEALERSHIP_SERVICE" EntitySet="VEHICLE_DEALERSHIP_SERVICE" />
+    </AssociationSet>
+    <EntitySet Name="TRAILERs" EntityType="UTRANSPORTDATABASEModel.TRAILER" />
+    <AssociationSet Name="FK__TRAILER__TRAILER__398D8EEE" Association="UTRANSPORTDATABASEModel.FK__TRAILER__TRAILER__398D8EEE">
+      <End Role="TRAILER_STATUS" EntitySet="TRAILER_STATUS" />
+      <End Role="TRAILER" EntitySet="TRAILERs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VEHICLE__TRAILER__3E52440B" Association="UTRANSPORTDATABASEModel.FK__VEHICLE__TRAILER__3E52440B">
+      <End Role="TRAILER" EntitySet="TRAILERs" />
+      <End Role="VEHICLE" EntitySet="VEHICLEs" />
+    </AssociationSet>
+    <EntitySet Name="PRODUCTs" EntityType="UTRANSPORTDATABASEModel.PRODUCT" />
+    <EntitySet Name="PRODUCT_TYPE" EntityType="UTRANSPORTDATABASEModel.PRODUCT_TYPE" />
+    <AssociationSet Name="FK__PRODUCT__PRODUCT__05D8E0BE" Association="UTRANSPORTDATABASEModel.FK__PRODUCT__PRODUCT__05D8E0BE">
+      <End Role="PRODUCT_TYPE" EntitySet="PRODUCT_TYPE" />
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+    </AssociationSet>
+    <EntitySet Name="SUPPLIERs" EntityType="UTRANSPORTDATABASEModel.SUPPLIER" />
+    <EntitySet Name="ORDERS_STATUS" EntityType="UTRANSPORTDATABASEModel.ORDERS_STATUS" />
+    <EntitySet Name="EMPLOYEE_TYPE" EntityType="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE" />
+    <AssociationSet Name="FK__EMPLOYEE__EMPLOY__6EF57B66" Association="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6EF57B66">
+      <End Role="EMPLOYEE_TYPE" EntitySet="EMPLOYEE_TYPE" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+    <EntitySet Name="PROVINCEs" EntityType="UTRANSPORTDATABASEModel.PROVINCE" />
+    <EntitySet Name="CLIENT_ROUTE" EntityType="UTRANSPORTDATABASEModel.CLIENT_ROUTE" />
+    <EntitySet Name="MINE" EntityType="UTRANSPORTDATABASEModel.MINE" />
+    <AssociationSet Name="FK__MINE__PROVINCE_I__282DF8C2" Association="UTRANSPORTDATABASEModel.FK__MINE__PROVINCE_I__282DF8C2">
+      <End Role="PROVINCE" EntitySet="PROVINCEs" />
+      <End Role="MINE" EntitySet="MINE" />
+    </AssociationSet>
+    <EntitySet Name="CLIENTs" EntityType="UTRANSPORTDATABASEModel.CLIENT" />
+    <EntitySet Name="CLIENT_MINE" EntityType="UTRANSPORTDATABASEModel.CLIENT_MINE" />
+    <EntitySet Name="DESTINATIONs" EntityType="UTRANSPORTDATABASEModel.DESTINATION" />
+    <AssociationSet Name="FK__CLIENT_MI__DESTI__30C33EC3" Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__30C33EC3">
+      <End Role="CLIENT" EntitySet="CLIENTs" />
+      <End Role="CLIENT_MINE" EntitySet="CLIENT_MINE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLIENT_MI__DESTI__32AB8735" Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__32AB8735">
+      <End Role="DESTINATION" EntitySet="DESTINATIONs" />
+      <End Role="CLIENT_MINE" EntitySet="CLIENT_MINE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLIENT_MI__MINE___31B762FC" Association="UTRANSPORTDATABASEModel.FK__CLIENT_MI__MINE___31B762FC">
+      <End Role="MINE" EntitySet="MINE" />
+      <End Role="CLIENT_MINE" EntitySet="CLIENT_MINE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CLIENT_RO__CLIEN__3587F3E0" Association="UTRANSPORTDATABASEModel.FK__CLIENT_RO__CLIEN__3587F3E0">
+      <End Role="CLIENT_MINE" EntitySet="CLIENT_MINE" />
+      <End Role="CLIENT_ROUTE" EntitySet="CLIENT_ROUTE" />
+    </AssociationSet>
+    <EntitySet Name="ORDERS" EntityType="UTRANSPORTDATABASEModel.ORDER" />
+    <EntitySet Name="ORDERS_LINE" EntityType="UTRANSPORTDATABASEModel.ORDERS_LINE" />
+    <AssociationSet Name="FK__ORDERS__ORDERS_S__1332DBDC" Association="UTRANSPORTDATABASEModel.FK__ORDERS__ORDERS_S__1332DBDC">
+      <End Role="ORDERS_STATUS" EntitySet="ORDERS_STATUS" />
+      <End Role="ORDER" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS__SUPPLIER__123EB7A3" Association="UTRANSPORTDATABASEModel.FK__ORDERS__SUPPLIER__123EB7A3">
+      <End Role="SUPPLIER" EntitySet="SUPPLIERs" />
+      <End Role="ORDER" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS_LI__ORDER__160F4887" Association="UTRANSPORTDATABASEModel.FK__ORDERS_LI__ORDER__160F4887">
+      <End Role="ORDER" EntitySet="ORDERS" />
+      <End Role="ORDERS_LINE" EntitySet="ORDERS_LINE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS_LI__PRODU__17036CC0" Association="UTRANSPORTDATABASEModel.FK__ORDERS_LI__PRODU__17036CC0">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="ORDERS_LINE" EntitySet="ORDERS_LINE" />
+    </AssociationSet>
+    <EntitySet Name="AUDIT_TRAIL" EntityType="UTRANSPORTDATABASEModel.AUDIT_TRAIL" />
+    <EntitySet Name="AUDIT_TRAIL_TYPE" EntityType="UTRANSPORTDATABASEModel.AUDIT_TRAIL_TYPE" />
+    <AssociationSet Name="FK__AUDIT_TRA__AUDIT__76969D2E" Association="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__AUDIT__76969D2E">
+      <End Role="AUDIT_TRAIL_TYPE" EntitySet="AUDIT_TRAIL_TYPE" />
+      <End Role="AUDIT_TRAIL" EntitySet="AUDIT_TRAIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AUDIT_TRA__EMPLO__778AC167" Association="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__EMPLO__778AC167">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="AUDIT_TRAIL" EntitySet="AUDIT_TRAIL" />
+    </AssociationSet>
+    <EntitySet Name="MAINTENANCE_PRODUCT" EntityType="UTRANSPORTDATABASEModel.MAINTENANCE_PRODUCT" />
+    <AssociationSet Name="FK__MAINTENAN__PRODU__0B91BA14" Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__PRODU__0B91BA14">
+      <End Role="PRODUCT" EntitySet="PRODUCTs" />
+      <End Role="MAINTENANCE_PRODUCT" EntitySet="MAINTENANCE_PRODUCT" />
+    </AssociationSet>
+    <EntitySet Name="MAINTENANCE_STATUS" EntityType="UTRANSPORTDATABASEModel.MAINTENANCE_STATUS" />
+    <EntitySet Name="MAINTENANCEs" EntityType="UTRANSPORTDATABASEModel.MAINTENANCE" />
+    <AssociationSet Name="FK__MAINTENAN__EMPLO__7C4F7684" Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__EMPLO__7C4F7684">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="MAINTENANCE" EntitySet="MAINTENANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAINTENAN__MAINT__0B91BA14" Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__0B91BA14">
+      <End Role="MAINTENANCE" EntitySet="MAINTENANCEs" />
+      <End Role="MAINTENANCE_PRODUCT" EntitySet="MAINTENANCE_PRODUCT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAINTENAN__MAINT__7E37BEF6" Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__7E37BEF6">
+      <End Role="MAINTENANCE_STATUS" EntitySet="MAINTENANCE_STATUS" />
+      <End Role="MAINTENANCE" EntitySet="MAINTENANCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MAINTENAN__VEHIC__7D439ABD" Association="UTRANSPORTDATABASEModel.FK__MAINTENAN__VEHIC__7D439ABD">
+      <End Role="VEHICLE" EntitySet="VEHICLEs" />
+      <End Role="MAINTENANCE" EntitySet="MAINTENANCEs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="USERS_ID" />
+    </Key>
+    <Property Name="USERS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="USERS_USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="USERS_PASSWORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="UTRANSPORTDATABASEModel.FK__USERS__EMPLOYEE___778AC167" FromRole="USER" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="TRAILER_STATUS">
+    <Key>
+      <PropertyRef Name="TRAILER_STATUS_ID" />
+    </Key>
+    <Property Name="TRAILER_STATUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRAILER_STATUS_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TRAILERs" Relationship="UTRANSPORTDATABASEModel.FK__TRAILER__TRAILER__398D8EEE" FromRole="TRAILER_STATUS" ToRole="TRAILER" />
+  </EntityType>
+  <EntityType Name="TRUCK_PICKUP">
+    <Key>
+      <PropertyRef Name="TRUCK_PICKUP_ID" />
+    </Key>
+    <Property Name="TRUCK_PICKUP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRUCK_PICKUP_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VEHICLE_STATUS">
+    <Key>
+      <PropertyRef Name="VEHICLE_STATUS_ID" />
+    </Key>
+    <Property Name="VEHICLE_STATUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VEHICLE_STATUS_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICLEs" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE__VEHICLE__3F466844" FromRole="VEHICLE_STATUS" ToRole="VEHICLE" />
+  </EntityType>
+  <EntityType Name="DEALERSHIP">
+    <Key>
+      <PropertyRef Name="DEALERSHIP_ID" />
+    </Key>
+    <Property Name="DEALERSHIP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DEALERSHIP_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DEALERSHIP_REGISTRATION_NUMBER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DEALERSHIP_CONTACT_NUMBER" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="DEALERSHIP_LOCATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICLE_DEALERSHIP_SERVICE" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE_D__DEALE__68487DD7" FromRole="DEALERSHIP" ToRole="VEHICLE_DEALERSHIP_SERVICE" />
+  </EntityType>
+  <EntityType Name="VEHICLE_DEALERSHIP_SERVICE">
+    <Key>
+      <PropertyRef Name="VEHICLE_SERVICE_ID" />
+    </Key>
+    <Property Name="VEHICLE_SERVICE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VEHICLE_SERVICE_DATE" Type="DateTime" Precision="0" />
+    <Property Name="VEHICLE_SERVICE_NEXT_DATE" Type="DateTime" Precision="0" />
+    <Property Name="VEHICLE_ID" Type="Int32" />
+    <Property Name="DEALERSHIP_ID" Type="Int32" />
+    <NavigationProperty Name="DEALERSHIP" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE_D__DEALE__68487DD7" FromRole="VEHICLE_DEALERSHIP_SERVICE" ToRole="DEALERSHIP" />
+    <NavigationProperty Name="VEHICLE" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE_D__VEHIC__619B8048" FromRole="VEHICLE_DEALERSHIP_SERVICE" ToRole="VEHICLE" />
+  </EntityType>
+  <Association Name="FK__VEHICLE_D__DEALE__68487DD7">
+    <End Type="UTRANSPORTDATABASEModel.DEALERSHIP" Role="DEALERSHIP" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE_DEALERSHIP_SERVICE" Role="VEHICLE_DEALERSHIP_SERVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEALERSHIP">
+        <PropertyRef Name="DEALERSHIP_ID" />
+      </Principal>
+      <Dependent Role="VEHICLE_DEALERSHIP_SERVICE">
+        <PropertyRef Name="DEALERSHIP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TITLE_ID" Type="Int32" />
+    <Property Name="EMPLOYEE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EMPLOYEE_IMAGE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_NAMES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_SURNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_EMAIL_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_CONTACT_NO" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="IDENTITY_NO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_CONTRACT_ID" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" />
+    <NavigationProperty Name="TITLE" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__TITLE___72C60C4A" FromRole="EMPLOYEE" ToRole="TITLE" />
+    <NavigationProperty Name="USERS" Relationship="UTRANSPORTDATABASEModel.FK__USERS__EMPLOYEE___778AC167" FromRole="EMPLOYEE" ToRole="USER" />
+    <NavigationProperty Name="EMPLOYEE_CONTRACT" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6E01572D" FromRole="EMPLOYEE" ToRole="EMPLOYEE_CONTRACT" />
+    <NavigationProperty Name="EMPLOYEE_TYPE" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6EF57B66" FromRole="EMPLOYEE" ToRole="EMPLOYEE_TYPE" />
+    <NavigationProperty Name="AUDIT_TRAIL" Relationship="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__EMPLO__778AC167" FromRole="EMPLOYEE" ToRole="AUDIT_TRAIL" />
+    <NavigationProperty Name="MAINTENANCEs" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__EMPLO__7C4F7684" FromRole="EMPLOYEE" ToRole="MAINTENANCE" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__TITLE___72C60C4A">
+    <End Type="UTRANSPORTDATABASEModel.TITLE" Role="TITLE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TITLE">
+        <PropertyRef Name="TITLE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="TITLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USERS__EMPLOYEE___778AC167">
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.USER" Role="USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EMPLOYEE_CONTRACT">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_CONTRACT_ID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_CONTRACT_SALARY" Type="Int32" />
+    <Property Name="EMPLOYEE_CONTRACT_START_DATE" Type="DateTime" Precision="0" />
+    <Property Name="EMPLOYEE_CONTRACT_END_DATE" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6E01572D" FromRole="EMPLOYEE_CONTRACT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__EMPLOY__6E01572D">
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE_CONTRACT" Role="EMPLOYEE_CONTRACT" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_CONTRACT">
+        <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_CONTRACT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="VEHICLE">
+    <Key>
+      <PropertyRef Name="VEHICLE_ID" />
+    </Key>
+    <Property Name="VEHICLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VEHICLE_REGISTRATIONNUMBER" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_PLATENUMBER" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_BRAND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_IMAGE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="VEHICLE_STATUS_ID" Type="Int32" />
+    <Property Name="VEHICLE_WEIGHT" Type="Int32" />
+    <Property Name="TRAILER_ID" Type="Int32" />
+    <NavigationProperty Name="VEHICLE_STATUS" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE__VEHICLE__3F466844" FromRole="VEHICLE" ToRole="VEHICLE_STATUS" />
+    <NavigationProperty Name="VEHICLE_DEALERSHIP_SERVICE" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE_D__VEHIC__619B8048" FromRole="VEHICLE" ToRole="VEHICLE_DEALERSHIP_SERVICE" />
+    <NavigationProperty Name="TRAILER" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE__TRAILER__3E52440B" FromRole="VEHICLE" ToRole="TRAILER" />
+    <NavigationProperty Name="MAINTENANCEs" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__VEHIC__7D439ABD" FromRole="VEHICLE" ToRole="MAINTENANCE" />
+  </EntityType>
+  <Association Name="FK__VEHICLE__VEHICLE__3F466844">
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE_STATUS" Role="VEHICLE_STATUS" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE" Role="VEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLE_STATUS">
+        <PropertyRef Name="VEHICLE_STATUS_ID" />
+      </Principal>
+      <Dependent Role="VEHICLE">
+        <PropertyRef Name="VEHICLE_STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VEHICLE_D__VEHIC__619B8048">
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE" Role="VEHICLE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE_DEALERSHIP_SERVICE" Role="VEHICLE_DEALERSHIP_SERVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLE">
+        <PropertyRef Name="VEHICLE_ID" />
+      </Principal>
+      <Dependent Role="VEHICLE_DEALERSHIP_SERVICE">
+        <PropertyRef Name="VEHICLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TRAILER">
+    <Key>
+      <PropertyRef Name="TRAILER_ID" />
+    </Key>
+    <Property Name="TRAILER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRAILER_REGISTRATIONNUMBER" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+    <Property Name="TRAILER_BRAND" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TRAILER_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TRAILER_IMAGE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TRAILER_IMAGE" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TRAILER_STATUS_ID" Type="Int32" />
+    <Property Name="TRAILER_WEIGHT" Type="Int32" />
+    <NavigationProperty Name="TRAILER_STATUS" Relationship="UTRANSPORTDATABASEModel.FK__TRAILER__TRAILER__398D8EEE" FromRole="TRAILER" ToRole="TRAILER_STATUS" />
+    <NavigationProperty Name="VEHICLEs" Relationship="UTRANSPORTDATABASEModel.FK__VEHICLE__TRAILER__3E52440B" FromRole="TRAILER" ToRole="VEHICLE" />
+  </EntityType>
+  <Association Name="FK__TRAILER__TRAILER__398D8EEE">
+    <End Type="UTRANSPORTDATABASEModel.TRAILER_STATUS" Role="TRAILER_STATUS" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.TRAILER" Role="TRAILER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAILER_STATUS">
+        <PropertyRef Name="TRAILER_STATUS_ID" />
+      </Principal>
+      <Dependent Role="TRAILER">
+        <PropertyRef Name="TRAILER_STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VEHICLE__TRAILER__3E52440B">
+    <End Type="UTRANSPORTDATABASEModel.TRAILER" Role="TRAILER" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE" Role="VEHICLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAILER">
+        <PropertyRef Name="TRAILER_ID" />
+      </Principal>
+      <Dependent Role="VEHICLE">
+        <PropertyRef Name="TRAILER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PRODUCT">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRODUCT_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCT_QUANTITY" Type="Int32" />
+    <Property Name="PRODUCT_TYPE_ID" Type="Int32" />
+    <Property Name="PRODUCT_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PRODUCT_TYPE" Relationship="UTRANSPORTDATABASEModel.FK__PRODUCT__PRODUCT__05D8E0BE" FromRole="PRODUCT" ToRole="PRODUCT_TYPE" />
+    <NavigationProperty Name="ORDERS_LINE" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS_LI__PRODU__17036CC0" FromRole="PRODUCT" ToRole="ORDERS_LINE" />
+    <NavigationProperty Name="MAINTENANCE_PRODUCT" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__PRODU__0B91BA14" FromRole="PRODUCT" ToRole="MAINTENANCE_PRODUCT" />
+  </EntityType>
+  <EntityType Name="PRODUCT_TYPE">
+    <Key>
+      <PropertyRef Name="PRODUCT_TYPE_ID" />
+    </Key>
+    <Property Name="PRODUCT_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRODUCT_TYPE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCT_TYPE_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PRODUCTs" Relationship="UTRANSPORTDATABASEModel.FK__PRODUCT__PRODUCT__05D8E0BE" FromRole="PRODUCT_TYPE" ToRole="PRODUCT" />
+  </EntityType>
+  <Association Name="FK__PRODUCT__PRODUCT__05D8E0BE">
+    <End Type="UTRANSPORTDATABASEModel.PRODUCT_TYPE" Role="PRODUCT_TYPE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.PRODUCT" Role="PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT_TYPE">
+        <PropertyRef Name="PRODUCT_TYPE_ID" />
+      </Principal>
+      <Dependent Role="PRODUCT">
+        <PropertyRef Name="PRODUCT_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SUPPLIER">
+    <Key>
+      <PropertyRef Name="SUPPLIER_ID" />
+    </Key>
+    <Property Name="SUPPLIER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUPPLIER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_REGISTRATION_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_CONTACT_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_ADDRESS_BOX" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_ADDRESS_STREET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_ADDRESS_TOWN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_ADDRESS_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="SUPPLIER_BANK_DETAILS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ORDERS" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS__SUPPLIER__123EB7A3" FromRole="SUPPLIER" ToRole="ORDER" />
+  </EntityType>
+  <EntityType Name="ORDERS_STATUS">
+    <Key>
+      <PropertyRef Name="ORDERS_STATUS_ID" />
+    </Key>
+    <Property Name="ORDERS_STATUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORDERS_STATUS_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ORDERS" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS__ORDERS_S__1332DBDC" FromRole="ORDERS_STATUS" ToRole="ORDER" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_TYPE">
+    <Key>
+      <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+    </Key>
+    <Property Name="EMPLOYEE_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_TYPE_NAME" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EMPLOYEE_TYPE_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="UTRANSPORTDATABASEModel.FK__EMPLOYEE__EMPLOY__6EF57B66" FromRole="EMPLOYEE_TYPE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__EMPLOY__6EF57B66">
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE_TYPE" Role="EMPLOYEE_TYPE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE_TYPE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PROVINCE">
+    <Key>
+      <PropertyRef Name="PROVINCE_ID" />
+    </Key>
+    <Property Name="PROVINCE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PROVINCE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MINE" Relationship="UTRANSPORTDATABASEModel.FK__MINE__PROVINCE_I__282DF8C2" FromRole="PROVINCE" ToRole="MINE" />
+  </EntityType>
+  <EntityType Name="CLIENT_ROUTE">
+    <Key>
+      <PropertyRef Name="CLIENT_ROUTE_ID" />
+    </Key>
+    <Property Name="CLIENT_ROUTE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENT_MINE_ID" Type="Int32" />
+    <Property Name="LOCATIONS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESIGNATED_ROUTE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENT_MINE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_RO__CLIEN__3587F3E0" FromRole="CLIENT_ROUTE" ToRole="CLIENT_MINE" />
+  </EntityType>
+  <EntityType Name="MINE">
+    <Key>
+      <PropertyRef Name="MINE_ID" />
+    </Key>
+    <Property Name="MINE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MINE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PROVINCE_ID" Type="Int32" />
+    <NavigationProperty Name="PROVINCE" Relationship="UTRANSPORTDATABASEModel.FK__MINE__PROVINCE_I__282DF8C2" FromRole="MINE" ToRole="PROVINCE" />
+    <NavigationProperty Name="CLIENT_MINE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__MINE___31B762FC" FromRole="MINE" ToRole="CLIENT_MINE" />
+  </EntityType>
+  <Association Name="FK__MINE__PROVINCE_I__282DF8C2">
+    <End Type="UTRANSPORTDATABASEModel.PROVINCE" Role="PROVINCE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.MINE" Role="MINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCE">
+        <PropertyRef Name="PROVINCE_ID" />
+      </Principal>
+      <Dependent Role="MINE">
+        <PropertyRef Name="PROVINCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="CLIENT_ID" />
+    </Key>
+    <Property Name="CLIENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CLIENT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_EMAIL_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_ADDRESS_BOX" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_ADDRESS_STREET" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_ADDRESS_TOWN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_ADDRESS_CODE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="CLIENT_CONTACT_NUMBER" Type="Int32" />
+    <NavigationProperty Name="CLIENT_MINE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__30C33EC3" FromRole="CLIENT" ToRole="CLIENT_MINE" />
+  </EntityType>
+  <EntityType Name="CLIENT_MINE">
+    <Key>
+      <PropertyRef Name="CLIENT_MINE_ID" />
+    </Key>
+    <Property Name="CLIENT_MINE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MINE_ID" Type="Int32" />
+    <Property Name="CLIENT_ID" Type="Int32" />
+    <Property Name="DESTINATION_ID" Type="Int32" />
+    <NavigationProperty Name="CLIENT" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__30C33EC3" FromRole="CLIENT_MINE" ToRole="CLIENT" />
+    <NavigationProperty Name="DESTINATION" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__32AB8735" FromRole="CLIENT_MINE" ToRole="DESTINATION" />
+    <NavigationProperty Name="MINE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__MINE___31B762FC" FromRole="CLIENT_MINE" ToRole="MINE" />
+    <NavigationProperty Name="CLIENT_ROUTE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_RO__CLIEN__3587F3E0" FromRole="CLIENT_MINE" ToRole="CLIENT_ROUTE" />
+  </EntityType>
+  <EntityType Name="DESTINATION">
+    <Key>
+      <PropertyRef Name="DESTINATION_ID" />
+    </Key>
+    <Property Name="DESTINATION_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESTINATION_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENT_MINE" Relationship="UTRANSPORTDATABASEModel.FK__CLIENT_MI__DESTI__32AB8735" FromRole="DESTINATION" ToRole="CLIENT_MINE" />
+  </EntityType>
+  <Association Name="FK__CLIENT_MI__DESTI__30C33EC3">
+    <End Type="UTRANSPORTDATABASEModel.CLIENT" Role="CLIENT" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.CLIENT_MINE" Role="CLIENT_MINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT">
+        <PropertyRef Name="CLIENT_ID" />
+      </Principal>
+      <Dependent Role="CLIENT_MINE">
+        <PropertyRef Name="CLIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLIENT_MI__DESTI__32AB8735">
+    <End Type="UTRANSPORTDATABASEModel.DESTINATION" Role="DESTINATION" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.CLIENT_MINE" Role="CLIENT_MINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DESTINATION">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Principal>
+      <Dependent Role="CLIENT_MINE">
+        <PropertyRef Name="DESTINATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLIENT_MI__MINE___31B762FC">
+    <End Type="UTRANSPORTDATABASEModel.MINE" Role="MINE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.CLIENT_MINE" Role="CLIENT_MINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MINE">
+        <PropertyRef Name="MINE_ID" />
+      </Principal>
+      <Dependent Role="CLIENT_MINE">
+        <PropertyRef Name="MINE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CLIENT_RO__CLIEN__3587F3E0">
+    <End Type="UTRANSPORTDATABASEModel.CLIENT_MINE" Role="CLIENT_MINE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.CLIENT_ROUTE" Role="CLIENT_ROUTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT_MINE">
+        <PropertyRef Name="CLIENT_MINE_ID" />
+      </Principal>
+      <Dependent Role="CLIENT_ROUTE">
+        <PropertyRef Name="CLIENT_MINE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ORDER">
+    <Key>
+      <PropertyRef Name="ORDERS_ID" />
+    </Key>
+    <Property Name="ORDERS_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ORDERS_STATUS_ID" Type="Int32" />
+    <Property Name="SUPPLIER_ID" Type="Int32" />
+    <NavigationProperty Name="ORDERS_STATUS" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS__ORDERS_S__1332DBDC" FromRole="ORDER" ToRole="ORDERS_STATUS" />
+    <NavigationProperty Name="SUPPLIER" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS__SUPPLIER__123EB7A3" FromRole="ORDER" ToRole="SUPPLIER" />
+    <NavigationProperty Name="ORDERS_LINE" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS_LI__ORDER__160F4887" FromRole="ORDER" ToRole="ORDERS_LINE" />
+  </EntityType>
+  <EntityType Name="ORDERS_LINE">
+    <Key>
+      <PropertyRef Name="ORDERS_LINE_ID" />
+    </Key>
+    <Property Name="ORDERS_LINE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ORDERS_LINE_QUANTITY" Type="Int32" />
+    <Property Name="ORDERS_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
+    <NavigationProperty Name="ORDER" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS_LI__ORDER__160F4887" FromRole="ORDERS_LINE" ToRole="ORDER" />
+    <NavigationProperty Name="PRODUCT" Relationship="UTRANSPORTDATABASEModel.FK__ORDERS_LI__PRODU__17036CC0" FromRole="ORDERS_LINE" ToRole="PRODUCT" />
+  </EntityType>
+  <Association Name="FK__ORDERS__ORDERS_S__1332DBDC">
+    <End Type="UTRANSPORTDATABASEModel.ORDERS_STATUS" Role="ORDERS_STATUS" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.ORDER" Role="ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS_STATUS">
+        <PropertyRef Name="ORDERS_STATUS_ID" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="ORDERS_STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS__SUPPLIER__123EB7A3">
+    <End Type="UTRANSPORTDATABASEModel.SUPPLIER" Role="SUPPLIER" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.ORDER" Role="ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUPPLIER">
+        <PropertyRef Name="SUPPLIER_ID" />
+      </Principal>
+      <Dependent Role="ORDER">
+        <PropertyRef Name="SUPPLIER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS_LI__ORDER__160F4887">
+    <End Type="UTRANSPORTDATABASEModel.ORDER" Role="ORDER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.ORDERS_LINE" Role="ORDERS_LINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER">
+        <PropertyRef Name="ORDERS_ID" />
+      </Principal>
+      <Dependent Role="ORDERS_LINE">
+        <PropertyRef Name="ORDERS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS_LI__PRODU__17036CC0">
+    <End Type="UTRANSPORTDATABASEModel.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.ORDERS_LINE" Role="ORDERS_LINE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Principal>
+      <Dependent Role="ORDERS_LINE">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AUDIT_TRAIL">
+    <Key>
+      <PropertyRef Name="AUDIT_TRAIL_ID" />
+    </Key>
+    <Property Name="AUDIT_TRAIL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="AUDIT_TRAIL_DATE" Type="DateTime" Precision="3" />
+    <Property Name="AUDIT_TRAIL_TYPE_ID" Type="Int32" />
+    <Property Name="AUDIT_TRAIL_DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AUDIT_TRAIL_DEVICE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AUDIT_TRAIL_TYPE" Relationship="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__AUDIT__76969D2E" FromRole="AUDIT_TRAIL" ToRole="AUDIT_TRAIL_TYPE" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__EMPLO__778AC167" FromRole="AUDIT_TRAIL" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="AUDIT_TRAIL_TYPE">
+    <Key>
+      <PropertyRef Name="AUDIT_TRAIL_TYPE_ID" />
+    </Key>
+    <Property Name="AUDIT_TRAIL_TYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AUDIT_TRAIL_TYPE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AUDIT_TRAIL" Relationship="UTRANSPORTDATABASEModel.FK__AUDIT_TRA__AUDIT__76969D2E" FromRole="AUDIT_TRAIL_TYPE" ToRole="AUDIT_TRAIL" />
+  </EntityType>
+  <Association Name="FK__AUDIT_TRA__AUDIT__76969D2E">
+    <End Type="UTRANSPORTDATABASEModel.AUDIT_TRAIL_TYPE" Role="AUDIT_TRAIL_TYPE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.AUDIT_TRAIL" Role="AUDIT_TRAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUDIT_TRAIL_TYPE">
+        <PropertyRef Name="AUDIT_TRAIL_TYPE_ID" />
+      </Principal>
+      <Dependent Role="AUDIT_TRAIL">
+        <PropertyRef Name="AUDIT_TRAIL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AUDIT_TRA__EMPLO__778AC167">
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.AUDIT_TRAIL" Role="AUDIT_TRAIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="AUDIT_TRAIL">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MAINTENANCE_PRODUCT">
+    <Key>
+      <PropertyRef Name="MAINTENANCE_PRODUCT1" />
+    </Key>
+    <Property Name="MAINTENANCE_PRODUCT1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAINTENANCE_ID" Type="Int32" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
+    <Property Name="MAINTENANCE_PRODUCT_QUANTITY" Type="Int32" />
+    <NavigationProperty Name="PRODUCT" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__PRODU__0B91BA14" FromRole="MAINTENANCE_PRODUCT" ToRole="PRODUCT" />
+    <NavigationProperty Name="MAINTENANCE" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__0B91BA14" FromRole="MAINTENANCE_PRODUCT" ToRole="MAINTENANCE" />
+  </EntityType>
+  <Association Name="FK__MAINTENAN__PRODU__0B91BA14">
+    <End Type="UTRANSPORTDATABASEModel.PRODUCT" Role="PRODUCT" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE_PRODUCT" Role="MAINTENANCE_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCT">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Principal>
+      <Dependent Role="MAINTENANCE_PRODUCT">
+        <PropertyRef Name="PRODUCT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MAINTENANCE_STATUS">
+    <Key>
+      <PropertyRef Name="MAINTENANCE_STATUS_ID" />
+    </Key>
+    <Property Name="MAINTENANCE_STATUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MAINTENANCE_STATUS_NAME" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MAINTENANCEs" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__7E37BEF6" FromRole="MAINTENANCE_STATUS" ToRole="MAINTENANCE" />
+  </EntityType>
+  <EntityType Name="MAINTENANCE">
+    <Key>
+      <PropertyRef Name="MAINTENANCE_ID" />
+    </Key>
+    <Property Name="MAINTENANCE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VEHICLE_ID" Type="Int32" />
+    <Property Name="EMPLOYEE_ID" Type="Int32" />
+    <Property Name="MAINTENANCE_STATUS_ID" Type="Int32" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__EMPLO__7C4F7684" FromRole="MAINTENANCE" ToRole="EMPLOYEE" />
+    <NavigationProperty Name="MAINTENANCE_PRODUCT" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__0B91BA14" FromRole="MAINTENANCE" ToRole="MAINTENANCE_PRODUCT" />
+    <NavigationProperty Name="MAINTENANCE_STATUS" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__MAINT__7E37BEF6" FromRole="MAINTENANCE" ToRole="MAINTENANCE_STATUS" />
+    <NavigationProperty Name="VEHICLE" Relationship="UTRANSPORTDATABASEModel.FK__MAINTENAN__VEHIC__7D439ABD" FromRole="MAINTENANCE" ToRole="VEHICLE" />
+  </EntityType>
+  <Association Name="FK__MAINTENAN__EMPLO__7C4F7684">
+    <End Type="UTRANSPORTDATABASEModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE" Role="MAINTENANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Principal>
+      <Dependent Role="MAINTENANCE">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAINTENAN__MAINT__0B91BA14">
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE" Role="MAINTENANCE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE_PRODUCT" Role="MAINTENANCE_PRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAINTENANCE">
+        <PropertyRef Name="MAINTENANCE_ID" />
+      </Principal>
+      <Dependent Role="MAINTENANCE_PRODUCT">
+        <PropertyRef Name="MAINTENANCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAINTENAN__MAINT__7E37BEF6">
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE_STATUS" Role="MAINTENANCE_STATUS" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE" Role="MAINTENANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAINTENANCE_STATUS">
+        <PropertyRef Name="MAINTENANCE_STATUS_ID" />
+      </Principal>
+      <Dependent Role="MAINTENANCE">
+        <PropertyRef Name="MAINTENANCE_STATUS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MAINTENAN__VEHIC__7D439ABD">
+    <End Type="UTRANSPORTDATABASEModel.VEHICLE" Role="VEHICLE" Multiplicity="0..1" />
+    <End Type="UTRANSPORTDATABASEModel.MAINTENANCE" Role="MAINTENANCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICLE">
+        <PropertyRef Name="VEHICLE_ID" />
+      </Principal>
+      <Dependent Role="MAINTENANCE">
+        <PropertyRef Name="VEHICLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
